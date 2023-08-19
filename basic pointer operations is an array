@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+    int *p;
+    int a[]={1,2,3,4,5};
+    p=a;//array name itself is a pointer.
+    printf("%p\n",p);
+    p++;
+    printf("%p\n",p);
+    printf("%p\n",*a);
+    printf("%u\n",*(a+2));
+    printf("%p\n",*a+1);
+    printf("%p\n",a+1);//resides with output no.2,because same operations.
+    printf("%p\n",&p);
+    printf("%p\n",*p);
+    printf("%u\n",a[3]);
+
+}
