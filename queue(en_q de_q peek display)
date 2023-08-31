@@ -1,0 +1,84 @@
+#include<stdio.h>
+#define N 5
+int queue[N];
+int front=-1;
+int rear=-1;
+int main()
+{
+    int ch,choice=1,x;
+    while(choice)
+    {
+       printf("enter 1 for enqueue \n 2 for dequeue \n 3 for peak \n 4 for display \n");
+       scanf("%d",&ch);
+       if(ch == 1)
+       {
+       	printf("enter elements");
+       	scanf("%d",&x);
+        enqueue(x);
+       }
+       else if(ch == 2)
+       {
+        x=dequeue();
+       }
+       else if(ch == 3)
+       {
+        peak();
+       }
+       else if(ch == 4)
+       {
+        display();
+       }
+       else
+       {
+        printf("invalid choice");
+       }
+        printf("do you want to continue(y/n)");
+        scanf("%d",&choice);
+
+    }
+   
+   
+}
+void enqueue(int x)
+{
+    if(rear==N-1)
+    {
+        printf("overflow");
+    }
+    else if(rear==-1 && front==-1)
+    {
+        front=rear=0;
+        queue[rear]=x;
+    }
+    else{
+        rear++;
+        queue[rear]=x;
+    }
+}
+int dequeue()
+{
+    if(front==-1 && rear==-1)
+    {
+        printf("underflow");
+    }
+    else if(rear==front)
+    {
+        front=rear=-1;
+    }
+    else{
+        printf("dequeued element is %d \n",queue[front]);
+        front++;
+    }
+}
+void peak()
+{
+    printf("peaked element is %d \n",queue[front]);
+}
+void display()
+{
+    int i;
+    for(i=front;i<rear+1;i++)
+    {
+        printf("%d",queue[i]);
+    }
+}
